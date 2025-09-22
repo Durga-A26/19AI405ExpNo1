@@ -40,3 +40,45 @@
 <p>Treat unhealthy patients in each room. And check for the unhealthy patients in random room</p>
 <h3>STEP 5:</h3>
 <p>Measure the performance parameters: For each treatment performance incremented, for each movement performance decremented</p>
+
+```
+import random
+import time
+
+def medicine_prescribing_agent(iterations=10):
+    performance = 0
+    current_room = 1
+
+    for step in range(iterations):
+        # Randomly generate patient temperature between 97 and 102
+        temperature = round(random.uniform(97.0, 102.0), 1)
+
+        print(f"\nStep {step + 1}:")
+        print(f"Agent is in Room {current_room}")
+        print(f"Patient Temperature: {temperature}°F")
+
+        # Check if patient is unhealthy
+        if temperature > 98.5:
+            print("Patient is unhealthy → Prescribing medicine.")
+            performance += 1
+        else:
+            print("Patient is healthy → No medicine needed.")
+
+        # Move to next room
+        current_room = 2 if current_room == 1 else 1
+        performance -= 1
+        print(f"Agent moves to Room {current_room}. (Performance penalty applied)")
+
+    print(f"\nFinal Performance Score: {performance}")
+
+# Run simulation
+medicine_prescribing_age
+```
+# Output 
+<img width="574" height="488" alt="Screenshot 2025-09-22 112452" src="https://github.com/user-attachments/assets/14af8336-7e33-480d-a0b8-6dde92cf337d" />
+<img width="599" height="488" alt="Screenshot 2025-09-22 112533" src="https://github.com/user-attachments/assets/32266bba-4073-4395-8f4b-4ab98c4139d4" />
+<img width="650" height="642" alt="Screenshot 2025-09-22 112602" src="https://github.com/user-attachments/assets/e0823b42-ca77-40b8-a746-2d7558e4ac8a" />
+
+
+
+
